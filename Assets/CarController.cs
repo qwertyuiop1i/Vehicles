@@ -14,7 +14,6 @@ public class CarController : MonoBehaviour
     public float acceleration = 500f;
     public float maxSpeed = 800f;
     public float maxBackSpeed = -600f;
-    public float brakeForce = 1000f;
     public float wheelSize;
     public bool grounded = false;
     public LayerMask ground;
@@ -29,7 +28,7 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        grounded = Physics2D.OverlapCircle(bWheel.transform.position, wheelSize, ground);
+        grounded = true;//Physics2D.OverlapCircle(bWheel.transform.position, wheelSize, ground);
 
         angleCar = transform.localEulerAngles.z;
 
