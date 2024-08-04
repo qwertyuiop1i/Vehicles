@@ -7,8 +7,8 @@ public class CarController : MonoBehaviour
     WheelJoint2D[] wheelJoints;
     JointMotor2D frontWheel;
     JointMotor2D backWheel;
-
-    private float deceleration = -400f;
+    [SerializeField]
+    private float deceleration = 400f;
     private float gravity = 9.8f;
     public float angleCar = 0;
     public float acceleration = 500f;
@@ -19,8 +19,7 @@ public class CarController : MonoBehaviour
     public bool grounded = false;
     public LayerMask ground;
     public Transform bWheel;
-
-
+    
     void Start()
     {
         wheelJoints = gameObject.GetComponents<WheelJoint2D>();
@@ -39,18 +38,28 @@ public class CarController : MonoBehaviour
         if (grounded)
         {
             if (Input.GetAxisRaw("Horizontal") > 0)
-                backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed - (acceleration - gravity * Mathf.PI * (angleCar / 180) * 80) * Time.deltaTime, maxSpeed, maxBackSpeed);
+            {
+                backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed - (acceleration) * Time.deltaTime, maxBackSpeed, 0f);
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed + (acceleration) * Time.deltaTime, 0f, maxSpeed);
+            }
+            else
+            {
+                backWheel.motorSpeed = Mathf.MoveTowards(backWheel.motorSpeed, 0, deceleration * Time.deltaTime);
+            }
         }
 
-        if (Input.GetAxisRaw("Horizontal") < 0 && backWheel.motorSpeed < 0)
-            backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed - (deceleration - gravity * Mathf.PI * (angleCar / 180) * 80) * Time.deltaTime, maxSpeed, maxBackSpeed);
-        if (Input.GetAxisRaw("Horizontal") < 0 && backWheel.motorSpeed > 0)
-            backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed - (-deceleration - gravity * Mathf.PI * (angleCar / 180) * 80) * Time.deltaTime, maxSpeed, maxBackSpeed);
-
+       
         backWheel.maxMotorTorque = 10000f;
 
         wheelJoints[0].motor = backWheel;
         wheelJoints[1].motor =backWheel;
 
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(bWheel.transform.position, wheelSize);
     }
 }
