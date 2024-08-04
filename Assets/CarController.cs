@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     WheelJoint2D[] wheelJoints;
-    JointMotor2D frontWheel;
+
     JointMotor2D backWheel;
     [SerializeField]
     private float deceleration = 400f;
@@ -54,8 +54,12 @@ public class CarController : MonoBehaviour
        
         backWheel.maxMotorTorque = 10000f;
 
-        wheelJoints[0].motor = backWheel;
-        wheelJoints[1].motor =backWheel;
+        //wheelJoints[0].motor = backWheel;
+        //wheelJoints[1].motor =backWheel;
+        foreach (WheelJoint2D wj in wheelJoints)
+        {
+            wj.motor = backWheel;
+        }
 
     }
     private void OnDrawGizmos()
