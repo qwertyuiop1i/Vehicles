@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 70838437}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 109785698}
   - component: {fileID: 109785699}
   - component: {fileID: 109785700}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,7 +865,7 @@ GameObject:
   - component: {fileID: 1410833886}
   - component: {fileID: 1410833887}
   - component: {fileID: 1410833888}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,7 +1023,7 @@ WheelJoint2D:
     m_DampingRatio: 0.55
     m_Frequency: 2
     m_Angle: 90
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
@@ -1047,7 +1047,7 @@ WheelJoint2D:
     m_DampingRatio: 0.7
     m_Frequency: 2
     m_Angle: 90
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
@@ -1084,9 +1084,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a980fd043a1dfde4788d52625481bf33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0
-  acceleration: 0
-  brakeSpeed: 0
+  angleCar: 0
+  acceleration: 100
+  maxSpeed: 800
+  maxBackSpeed: -600
+  brakeForce: 1000
+  wheelSize: 0.75
+  grounded: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 8
+  bWheel: {fileID: 584425236}
 --- !u!1 &1845654877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1106,7 @@ GameObject:
   - component: {fileID: 1845654878}
   - component: {fileID: 1845654880}
   - component: {fileID: 1845654879}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

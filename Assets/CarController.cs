@@ -4,22 +4,53 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public float maxSpeed;
-    public float acceleration;
-    public float brakeSpeed;
+    WheelJoint2D[] wheelJoints;
+    JointMotor2D frontWheel;
+    JointMotor2D backWheel;
 
-    public JointMotor2D frontWheel;
-    public JointMotor2D backWheel;
+    private float deceleration = -400f;
+    private float gravity = 9.8f;
+    public float angleCar = 0;
+    public float acceleration = 500f;
+    public float maxSpeed = 800f;
+    public float maxBackSpeed = -600f;
+    public float brakeForce = 1000f;
+    public float wheelSize;
+    public bool grounded = false;
+    public LayerMask ground;
+    public Transform bWheel;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        wheelJoints = gameObject.GetComponents<WheelJoint2D>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void FixedUpdate()
     {
-        
+        grounded = Physics2D.OverlapCircle(bWheel.transform.position, wheelSize, ground);
+
+        angleCar = transform.localEulerAngles.z;
+
+        if (angleCar > 180) angleCar = angleCar - 360;
+
+        if (grounded)
+        {
+            if (Input.GetAxisRaw("Horizontal") > 0)
+                backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed - (acceleration - gravity * Mathf.PI * (angleCar / 180) * 80) * Time.deltaTime, maxSpeed, maxBackSpeed);
+        }
+
+        if (Input.GetAxisRaw("Horizontal") < 0 && backWheel.motorSpeed < 0)
+            backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed - (deceleration - gravity * Mathf.PI * (angleCar / 180) * 80) * Time.deltaTime, maxSpeed, maxBackSpeed);
+        if (Input.GetAxisRaw("Horizontal") < 0 && backWheel.motorSpeed > 0)
+            backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed - (-deceleration - gravity * Mathf.PI * (angleCar / 180) * 80) * Time.deltaTime, maxSpeed, maxBackSpeed);
+
+        backWheel.maxMotorTorque = 10000f;
+
+        wheelJoints[0].motor = backWheel;
+        wheelJoints[1].motor =backWheel;
+
     }
 }
