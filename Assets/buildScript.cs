@@ -5,7 +5,7 @@ using UnityEngine;
 public class buildScript : MonoBehaviour
 {
     public bool canBuild = true;
-    public GameObject selected;
+    public GameObject ?selected=null;
     // Start is called before the first frame update
     void Start()
     {

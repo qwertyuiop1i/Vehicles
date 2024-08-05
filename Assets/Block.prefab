@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8143273816658534773}
   - component: {fileID: 8143273816658534774}
   - component: {fileID: 8143273816658534775}
-  - component: {fileID: 8143273816658534763}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -134,21 +133,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!255 &8143273816658534763
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8143273816658534768}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 2.0219994}
-  m_DampingRatio: 0
-  m_Frequency: 0
