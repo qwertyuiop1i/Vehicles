@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 3516711964957146415}
   - component: {fileID: 3516711964957146412}
   - component: {fileID: 3516711964957146416}
+  - component: {fileID: 1194989680683994833}
   m_Layer: 0
   m_Name: Wheel
   m_TagString: item
@@ -287,3 +288,18 @@ WheelJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
+--- !u!114 &1194989680683994833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516711964957146413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afe45423371e6d49bb7327fe3120845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRadius: 0.23
+  offset: {x: 0, y: 1.05, z: 0}
+  main: {fileID: 0}

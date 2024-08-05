@@ -5,6 +5,8 @@ using UnityEngine;
 public class interactable : MonoBehaviour
 {
     public float detectRadius = 1.2f;
+    [SerializeField]
+    public Vector3 offset;
     public vehicle main;
 
  
@@ -16,46 +18,48 @@ public class interactable : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+
+    public void constructJoints()
     {
-        if (!main.shouldPlay)
+        Collider2D[] colliders;
+
+        colliders = Physics2D.OverlapCircleAll(transform.position + offset, detectRadius);
+
+        foreach (Collider2D collider in colliders)
         {
-            Collider2D[] colliders;
 
-            colliders = Physics2D.OverlapCircleAll(transform.position, detectRadius);
+            if (collider.CompareTag("item") && collider.gameObject != gameObject)
 
-            foreach (Collider2D collider in colliders)
             {
-                
-                if (collider.CompareTag("item")&&collider.gameObject!=gameObject)
 
+                GameObject otherObject = collider.gameObject;
+
+                FixedJoint2D[] myJoints = GetComponents<FixedJoint2D>();
+
+                bool jointExists = false;
+                foreach (FixedJoint2D joint in myJoints)
                 {
-                    Debug.Log("a");
-                    GameObject otherObject = collider.gameObject;
-
-                    FixedJoint2D[] myJoints = GetComponents<FixedJoint2D>();
-
-                    bool jointExists = false;
-                    foreach (FixedJoint2D joint in myJoints)
+                    if (joint.connectedBody == otherObject.GetComponent<Rigidbody2D>())
                     {
-                        if (joint.connectedBody == otherObject.GetComponent<Rigidbody2D>())
-                        {
-                            jointExists = true;
-                            break;
-                        }
+                        jointExists = true;
+                        break;
                     }
+                }
 
-                    if (!jointExists)
-                    {
-                        gameObject.AddComponent<FixedJoint2D>().connectedBody = otherObject.GetComponent<Rigidbody2D>();
-
-
-                    }
+                if (!jointExists)
+                {
+                    gameObject.AddComponent<FixedJoint2D>().connectedBody = otherObject.GetComponent<Rigidbody2D>();
+                    
 
                 }
-            }
 
+            }
         }
+
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position+offset, detectRadius);
     }
 
 }

@@ -24,6 +24,13 @@ public class vehicle : MonoBehaviour
 
         Rigidbody2D[] rbs=GetComponentsInChildren<Rigidbody2D>();
 
+        interactable[] i;
+        i=GetComponentsInChildren<interactable>();
+        foreach(interactable ib in i)
+        {
+            ib.constructJoints();
+        }
+
         foreach (Rigidbody2D rb in rbs)
         {
             rb.bodyType = RigidbodyType2D.Dynamic;

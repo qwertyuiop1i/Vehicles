@@ -126,7 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afe45423371e6d49bb7327fe3120845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRadius: 1.2
+  detectRadius: 0.23
+  offset: {x: 0.93, y: 0, z: 0}
   main: {fileID: 0}
 --- !u!50 &8821554573343136141
 Rigidbody2D:
@@ -158,5 +159,5 @@ ConstantForce2D:
   m_GameObject: {fileID: 4221856862045611068}
   m_Enabled: 1
   m_Force: {x: 0, y: 0}
-  m_RelativeForce: {x: -10.99, y: 0}
+  m_RelativeForce: {x: 40, y: 0}
   m_Torque: 0
