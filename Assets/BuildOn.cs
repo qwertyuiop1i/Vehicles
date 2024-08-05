@@ -21,10 +21,16 @@ public class BuildOn : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0) && !OnMe)
+        if (Input.GetMouseButtonDown(0))
         {
-            var i=Instantiate(bs.selected, transform.position, Quaternion.identity,parent);
-            
+            if (!OnMe)
+            {
+                OnMe = Instantiate(bs.selected, transform.position, Quaternion.identity, parent);
+            }
+            else
+            {
+                OnMe.transform.Rotate(new Vector3(0, 0, 90f));
+            }
 
         }
     }

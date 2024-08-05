@@ -7,7 +7,7 @@ public class interactable : MonoBehaviour
     public float detectRadius = 1.2f;
     public vehicle main;
 
-    public float rotation;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class interactable : MonoBehaviour
             foreach (Collider2D collider in colliders)
             {
                 
-                if (collider.CompareTag("item"))
+                if (collider.CompareTag("item")&&collider.gameObject!=gameObject)
 
                 {
                     Debug.Log("a");
@@ -57,8 +57,5 @@ public class interactable : MonoBehaviour
 
         }
     }
-    private void OnMouseDown()
-    {
-        transform.rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f);
-    }
+
 }
