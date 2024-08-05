@@ -51,7 +51,7 @@ public class CarController : MonoBehaviour
         }
 
        
-        backWheel.maxMotorTorque = 10000f;
+        backWheel.maxMotorTorque = 1000000f;
 
         //wheelJoints[0].motor = backWheel;
         //wheelJoints[1].motor =backWheel;
