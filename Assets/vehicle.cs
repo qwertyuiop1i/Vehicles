@@ -26,7 +26,7 @@ public class vehicle : MonoBehaviour
 
         foreach (Rigidbody2D rb in rbs)
         {
-            rb.simulated = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
         }
     }
 }
