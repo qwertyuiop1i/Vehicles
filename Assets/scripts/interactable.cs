@@ -14,7 +14,7 @@ public class interactable : MonoBehaviour
 
     public float jointStrength=50f;
 
-    public bool isPowered=false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class interactable : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
 
-            if (collider.CompareTag("item") && collider.gameObject != gameObject)
+            if (collider.gameObject.layer == LayerMask.NameToLayer("item") && collider.gameObject != gameObject)
 
             {
 

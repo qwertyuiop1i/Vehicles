@@ -137,9 +137,9 @@ GameObject:
   - component: {fileID: 3516711964957146412}
   - component: {fileID: 3516711964957146416}
   - component: {fileID: 1194989680683994833}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PoweredWheel
-  m_TagString: item
+  m_TagString: poweredWheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

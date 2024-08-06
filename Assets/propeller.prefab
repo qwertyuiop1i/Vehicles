@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1586503460987914692}
   - component: {fileID: 8821554573343136141}
   - component: {fileID: 7189355405393924083}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: propeller
-  m_TagString: item
+  m_TagString: Blower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

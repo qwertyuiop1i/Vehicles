@@ -26,9 +26,9 @@ public class vehicle : MonoBehaviour
     public void toggleFans()
     {
 
-        Transform[] children = GetComponentsInChildren<Transform>(true);
+        GameObject[] children = GameObject.FindGameObjectsWithTag("Blower");
 
-        foreach (Transform child in children)
+        foreach (GameObject child in children)
         {
 
             ConstantForce2D force = child.GetComponent<ConstantForce2D>();
@@ -42,14 +42,13 @@ public class vehicle : MonoBehaviour
 
     public void toggleWheels()
     {
-        WheelJoint2D[] wheels = GetComponentsInChildren<WheelJoint2D>(true);
+        GameObject[] children = GameObject.FindGameObjectsWithTag("poweredWheel");
 
-        foreach (WheelJoint2D wheel in wheels)
+        foreach (GameObject wheel in children)
         {
-            if (wheel.gameObject.GetComponent<interactable>().isPowered)
-            {
-                wheel.useMotor = !wheel.useMotor;
-            }
+
+            wheel.GetComponent<WheelJoint2D>().useMotor = !wheel.GetComponent<WheelJoint2D>().useMotor;
+            
         }
     }
 

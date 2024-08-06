@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 3516711964957146412}
   - component: {fileID: 3516711964957146416}
   - component: {fileID: 1194989680683994833}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wheel
   m_TagString: item
   m_Icon: {fileID: 0}
@@ -306,3 +306,4 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   origRot: {x: 0, y: 0, z: 0, w: 0}
   jointStrength: 2000
+  isPowered: 0
