@@ -305,4 +305,4 @@ MonoBehaviour:
   main: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   origRot: {x: 0, y: 0, z: 0, w: 0}
-  jointStrength: 750
+  jointStrength: 2000

@@ -28,6 +28,10 @@ public class interactable : MonoBehaviour
 
     public void constructJoints()
     {
+        foreach(Transform child in transform)
+        {
+            child.localPosition = new Vector3(0, 0, 0);
+        }
 
         origin = transform.position;
         

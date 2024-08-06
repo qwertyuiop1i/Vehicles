@@ -7,6 +7,9 @@ public class vehicle : MonoBehaviour
     public bool shouldPlay;
 
     public float cellSize = 2f;
+
+    public GameObject buildPanel;
+    public GameObject buildGrid;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +21,31 @@ public class vehicle : MonoBehaviour
     {
         
     }
+    public void toggleFans()
+    {
+
+        Transform[] children = GetComponentsInChildren<Transform>(true);
+
+        foreach (Transform child in children)
+        {
+
+            ConstantForce2D force = child.GetComponent<ConstantForce2D>();
+
+            if (force != null)
+            {
+                force.enabled = !force.enabled;
+            }
+        }
+    }
     public void play()
     {
         shouldPlay = !shouldPlay;
         if(shouldPlay)
         {
+            buildPanel.SetActive(false);
+            buildGrid.SetActive(false);
+
+
             Rigidbody2D[] rbs = GetComponentsInChildren<Rigidbody2D>();
 
             interactable[] i;
@@ -39,6 +62,9 @@ public class vehicle : MonoBehaviour
         }
         else
         {
+            buildPanel.SetActive(true);
+            buildGrid.SetActive(true);
+            
             foreach (Transform child in transform)
             {
 
