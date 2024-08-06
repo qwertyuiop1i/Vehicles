@@ -25,6 +25,7 @@ public class BuildOn : MonoBehaviour
         {
             if (!OnMe)
             {
+
                 OnMe = Instantiate(bs.selected, transform.position, Quaternion.identity, parent);
             }
             else

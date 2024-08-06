@@ -20,20 +20,44 @@ public class vehicle : MonoBehaviour
     }
     public void play()
     {
-        shouldPlay = true;
-
-        Rigidbody2D[] rbs=GetComponentsInChildren<Rigidbody2D>();
-
-        interactable[] i;
-        i=GetComponentsInChildren<interactable>();
-        foreach(interactable ib in i)
+        shouldPlay = !shouldPlay;
+        if(shouldPlay)
         {
-            ib.constructJoints();
+            Rigidbody2D[] rbs = GetComponentsInChildren<Rigidbody2D>();
+
+            interactable[] i;
+            i = GetComponentsInChildren<interactable>();
+            foreach (interactable ib in i)
+            {
+                ib.constructJoints();
+            }
+
+            foreach (Rigidbody2D rb in rbs)
+            {
+                rb.bodyType = RigidbodyType2D.Dynamic;
+            }
         }
-
-        foreach (Rigidbody2D rb in rbs)
+        else
         {
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            foreach (Transform child in transform)
+            {
+
+                interactable childScript = child.GetComponent<interactable>();
+
+
+
+                child.position = childScript.origin;
+                child.rotation = childScript.origRot;
+         
+            }
+
+            Rigidbody2D[] rbs = GetComponentsInChildren<Rigidbody2D>();
+            foreach(Rigidbody2D rb in rbs)
+            {
+                rb.bodyType = RigidbodyType2D.Static;
+            }
+            
         }
     }
+
 }

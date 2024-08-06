@@ -8,13 +8,17 @@ public class interactable : MonoBehaviour
     [SerializeField]
     public Vector3 offset;
     public vehicle main;
-
+    public Vector3 origin;
+    public Quaternion origRot;
  
 
     // Start is called before the first frame update
     void Start()
     {
         main = GameObject.Find("Creation").GetComponent<vehicle>();
+
+        origin = transform.position;
+        origRot = transform.rotation;
     }
 
     // Update is called once per frame
@@ -60,6 +64,13 @@ public class interactable : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position+offset, detectRadius);
+    }
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1) && !main.shouldPlay)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
