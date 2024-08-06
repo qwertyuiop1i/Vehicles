@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -1271081153, guid: b218fe63ca32b4041ab2b3c45f1c4c88, type: 3}
+  m_Sprite: {fileID: -787646891, guid: 9d0be865f4d4b6d498c21cae6eb66b16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 3516711964957146416}
   - component: {fileID: 1194989680683994833}
   m_Layer: 0
-  m_Name: Wheel
+  m_Name: PoweredWheel
   m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1123522283, guid: b218fe63ca32b4041ab2b3c45f1c4c88, type: 3}
+  m_Sprite: {fileID: 1815251780, guid: 9d0be865f4d4b6d498c21cae6eb66b16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -249,7 +249,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.49290562}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2, y: 2}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
@@ -284,9 +284,9 @@ WheelJoint2D:
     m_DampingRatio: 1
     m_Frequency: 2
     m_Angle: 90
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
-    m_MotorSpeed: 0
+    m_MotorSpeed: 500
     m_MaximumMotorForce: 10000
 --- !u!114 &1194989680683994833
 MonoBehaviour:
