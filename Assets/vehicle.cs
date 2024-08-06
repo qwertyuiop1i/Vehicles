@@ -10,6 +10,8 @@ public class vehicle : MonoBehaviour
 
     public GameObject buildPanel;
     public GameObject buildGrid;
+
+    public float motorTorque = 300f;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,20 @@ public class vehicle : MonoBehaviour
             }
         }
     }
+
+    public void toggleWheels()
+    {
+        WheelJoint2D[] wheels = GetComponentsInChildren<WheelJoint2D>(true);
+
+        foreach (WheelJoint2D wheel in wheels)
+        {
+            if (wheel.gameObject.GetComponent<interactable>().isPowered)
+            {
+                wheel.useMotor = !wheel.useMotor;
+            }
+        }
+    }
+
     public void play()
     {
         shouldPlay = !shouldPlay;

@@ -13,8 +13,8 @@ public class interactable : MonoBehaviour
     public Quaternion origRot;
 
     public float jointStrength=50f;
- 
-   
+
+    public bool isPowered=false;
 
     // Start is called before the first frame update
     void Start()

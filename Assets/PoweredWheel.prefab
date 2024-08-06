@@ -306,3 +306,4 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   origRot: {x: 0, y: 0, z: 0, w: 0}
   jointStrength: 2000
+  isPowered: 1
