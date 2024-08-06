@@ -146,5 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afe45423371e6d49bb7327fe3120845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRadius: 1.2
+  detectRadius: 1.03
+  offset: {x: 0, y: 0, z: 0}
   main: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  origRot: {x: 0, y: 0, z: 0, w: 0}
+  jointStrength: 750

@@ -126,9 +126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afe45423371e6d49bb7327fe3120845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRadius: 0.23
-  offset: {x: 0.93, y: 0, z: 0}
+  detectRadius: 0.15
+  offset: {x: 1, y: 0, z: 0}
   main: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  origRot: {x: 0, y: 0, z: 0, w: 0}
+  jointStrength: 750
 --- !u!50 &8821554573343136141
 Rigidbody2D:
   serializedVersion: 4
