@@ -43,6 +43,23 @@ public class vehicle : MonoBehaviour
         }
     }
 
+    public void togglePropeller()
+    {
+
+        GameObject[] children = GameObject.FindGameObjectsWithTag("Propeller");
+
+        foreach (GameObject child in children)
+        {
+
+            ConstantForce2D force = child.GetComponent<ConstantForce2D>();
+
+            if (force != null)
+            {
+                force.enabled = !force.enabled;
+            }
+        }
+    }
+
     public void toggleWheels()
     {
         GameObject[] children = GameObject.FindGameObjectsWithTag("poweredWheel");

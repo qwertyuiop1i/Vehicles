@@ -9,6 +9,7 @@ TagManager:
   - Wheel
   - Blower
   - Rope
+  - Propeller
   layers:
   - Default
   - TransparentFX

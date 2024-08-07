@@ -78,17 +78,7 @@ public class interactable : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position+ (Vector3)RotateVector(offset, transform.eulerAngles.z), detectRadius);
     }
-    private void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(1) && !main.shouldPlay)
-        {
-            Destroy(gameObject);
-        }
-        if (Input.GetMouseButtonDown(0)&&!main.shouldPlay)
-        {
-            transform.Rotate(new Vector3(0, 0, 90f));
-        }
-    }
+
   //  private void Onmouse
     Vector2 RotateVector(Vector2 v, float angle)
     {

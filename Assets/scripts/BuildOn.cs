@@ -15,9 +15,13 @@ public class BuildOn : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void OnMouseOver()
     {
-        
+
+        if (Input.GetMouseButtonDown(1)&&OnMe)
+        {
+            Destroy(OnMe);
+        }
     }
     private void OnMouseDown()
     {
@@ -28,8 +32,14 @@ public class BuildOn : MonoBehaviour
 
                 OnMe = Instantiate(bs.selected, transform.position, Quaternion.identity, parent);
             }
-
+            else
+            {
+                OnMe.transform.Rotate(new Vector3(0, 0, 90f)); 
+            }
+            
+   
 
         }
+
     }
 }
