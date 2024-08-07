@@ -28,10 +28,7 @@ public class BuildOn : MonoBehaviour
 
                 OnMe = Instantiate(bs.selected, transform.position, Quaternion.identity, parent);
             }
-            else
-            {
-                OnMe.transform.Rotate(new Vector3(0, 0, 90f));
-            }
+
 
         }
     }

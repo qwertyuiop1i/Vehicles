@@ -9,16 +9,26 @@ public class cameraFollow : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
+    public AudioSource As;
+    public AudioClip c;
+    private void Start()
+    {
+        As = GetComponent<AudioSource>();
+    }
 
     void FixedUpdate()
     {
         if (target == null)
 
-            target=GameObject.Find("player").transform;
+            target = GameObject.FindGameObjectWithTag("Player").transform;
 
         Vector3 desiredPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
         transform.position = Vector3.SmoothDamp(transform.position,
  desiredPosition, ref velocity, smoothTime);
 
+    }
+    public void clickSound()
+    {
+        As.PlayOneShot(c);
     }
 }

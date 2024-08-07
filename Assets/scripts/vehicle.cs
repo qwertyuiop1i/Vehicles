@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class vehicle : MonoBehaviour
 {
     public bool shouldPlay;
@@ -10,6 +11,8 @@ public class vehicle : MonoBehaviour
 
     public GameObject buildPanel;
     public GameObject buildGrid;
+    public TextMeshProUGUI playButton;
+
 
     public float motorTorque = 300f;
     // Start is called before the first frame update
@@ -69,6 +72,7 @@ public class vehicle : MonoBehaviour
         shouldPlay = !shouldPlay;
         if(shouldPlay)
         {
+            playButton.text = "Stop Simulation";
             buildPanel.SetActive(false);
             buildGrid.SetActive(false);
 
@@ -86,7 +90,7 @@ public class vehicle : MonoBehaviour
             foreach (GameObject wheel in children)
             {
 
-                wheel.GetComponent<WheelJoint2D>().useMotor = !wheel.GetComponent<WheelJoint2D>().useMotor;
+                wheel.GetComponent<WheelJoint2D>().useMotor = false;
 
             }
             foreach (Rigidbody2D rb in rbs)
@@ -96,6 +100,7 @@ public class vehicle : MonoBehaviour
         }
         else
         {
+            playButton.text = "Play";
             buildPanel.SetActive(true);
             buildGrid.SetActive(true);
             

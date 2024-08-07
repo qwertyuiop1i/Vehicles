@@ -84,8 +84,12 @@ public class interactable : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (Input.GetMouseButtonDown(0)&&!main.shouldPlay)
+        {
+            transform.Rotate(new Vector3(0, 0, 90f));
+        }
     }
-
+  //  private void Onmouse
     Vector2 RotateVector(Vector2 v, float angle)
     {
         float radians = angle * Mathf.Deg2Rad;
