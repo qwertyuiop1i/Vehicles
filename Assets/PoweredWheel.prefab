@@ -284,7 +284,7 @@ WheelJoint2D:
     m_DampingRatio: 1
     m_Frequency: 2
     m_Angle: 90
-  m_UseMotor: 1
+  m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 500
     m_MaximumMotorForce: 10000
@@ -306,4 +306,3 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   origRot: {x: 0, y: 0, z: 0, w: 0}
   jointStrength: 2000
-  isPowered: 1

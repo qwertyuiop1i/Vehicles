@@ -132,7 +132,6 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   origRot: {x: 0, y: 0, z: 0, w: 0}
   jointStrength: 2000
-  isPowered: 0
 --- !u!50 &8821554573343136141
 Rigidbody2D:
   serializedVersion: 4
@@ -161,7 +160,7 @@ ConstantForce2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4221856862045611068}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Force: {x: 0, y: 0}
   m_RelativeForce: {x: -80, y: 0}
   m_Torque: 0

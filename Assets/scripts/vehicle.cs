@@ -51,7 +51,19 @@ public class vehicle : MonoBehaviour
             
         }
     }
+    public void reverse()
+    {
+        GameObject[] children = GameObject.FindGameObjectsWithTag("poweredWheel");
 
+        foreach (GameObject wheel in children)
+        {
+
+            JointMotor2D motor = wheel.GetComponent<WheelJoint2D>().motor;
+            motor.motorSpeed *= -1;
+            wheel.GetComponent<WheelJoint2D>().motor = motor;
+
+        }
+    }
     public void play()
     {
         shouldPlay = !shouldPlay;
@@ -69,7 +81,14 @@ public class vehicle : MonoBehaviour
             {
                 ib.constructJoints();
             }
+            GameObject[] children = GameObject.FindGameObjectsWithTag("poweredWheel");
 
+            foreach (GameObject wheel in children)
+            {
+
+                wheel.GetComponent<WheelJoint2D>().useMotor = !wheel.GetComponent<WheelJoint2D>().useMotor;
+
+            }
             foreach (Rigidbody2D rb in rbs)
             {
                 rb.bodyType = RigidbodyType2D.Dynamic;
